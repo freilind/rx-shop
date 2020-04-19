@@ -17,15 +17,16 @@ export class ShoppingCartService {
     });
   }
 
-  private getCart(cartId: string) {
-    return this.db.object('/shopping-carts' + cartId).snapshotChanges();
+  public async getCart() {
+    const cartId = await this.getOrCreatedCartId();
+    return this.db.object('/shopping-carts/' + cartId).snapshotChanges();
   }
 
   private getItem(cartId: string, productId: string) {
     return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
   }
 
-  private async getOrCreatedCartId() {
+  private async getOrCreatedCartId(): Promise<string> {
     const cartId = localStorage.getItem('cartId');
     if (cartId) { return cartId; }
 

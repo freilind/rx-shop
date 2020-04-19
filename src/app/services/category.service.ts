@@ -21,6 +21,6 @@ export class CategoryService {
               return { key, ...data };
           })
       )
-  );;
+    );
   }
 }
