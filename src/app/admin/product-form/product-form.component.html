@@ -23,7 +23,7 @@
                 <label for="category">Category</label>
                 <select #category="ngModel" [(ngModel)]="product.category" name ="category" id="category"  class="form-control" required>
                     <option value=""></option>
-                    <option *ngFor="let category of categories" [value]="category.$key">
+                    <option *ngFor="let category of categories" [value]="category.key">
                         {{category.name}}
                     </option>
                 </select>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="col-md-6">
-        <app-product-card [product]="product" [show-actions]="false"></app-product-card>
+        <app-product-card [product]="product" [showActions]="false"></app-product-card>
     </div>
 </div>
 

@@ -11,7 +11,6 @@ import { Category } from '../../models/category';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-
   categories: Category[] = [];
   product = {};
   id;
@@ -24,9 +23,10 @@ export class ProductFormComponent implements OnInit {
       categoryService.getAll().subscribe(categories => this.categories = categories);
       this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
-        this.productService.get(this.id).pipe(take(1)).subscribe(
-          p => this.product = p.payload.val()
-        );
+        this.productService.get(this.id).
+          pipe(take(1)).subscribe(p => {
+            this.product = p.payload.val();
+          });
       }
    }
 
