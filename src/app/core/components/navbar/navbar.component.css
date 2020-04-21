@@ -1,0 +1,26 @@
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.fa-2x {
+    font-size: 1.5em;
+}
+
+.badge-cart {
+    color: #fff;
+    margin-left: 5px;
+    background-color: #D62839;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+.mg-lft-100 {
+    margin-left: 100px;
+}
+
+.logo {
+    width: 100px;
+    position: absolute;
+    margin-top: -25px;
+}
