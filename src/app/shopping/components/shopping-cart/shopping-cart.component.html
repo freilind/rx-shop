@@ -1,11 +1,14 @@
 <h1>Shopping Cart</h1>
-<div class="row" *ngIf="cart$ | async as cart">
-    <p>
-        Yohave {{ cart.totalItemsCount}} items in your shopping cart.
-        <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-light btn-sm">
+<div class="row col-10" *ngIf="cart$ | async as cart">
+    <div class="card-body">
+        <p>
+            You have {{ cart.totalItemsCount}} items in your shopping cart.
+        </p>
+        <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-secondary btn-sm">
+            <i class="fa fa-trash fa-2x"></i>
             Clear Shopping Cart
         </button>
-    </p>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -35,14 +38,20 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th></th>
-                <th class="text-right">
-                    {{ cart.totalPrice | currency:'USD':true }}
+                <th class="text-center wc-230">
+                    {{ cart.totalItemsCount}} items.
+                </th>
+                <th class="text-right wc-200">
+                    Total: {{ cart.totalPrice | currency:'USD':true }}
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">
+                        Check Out
+                    </a>
                 </th>
             </tr>
         </tfoot>
     </table>
-    <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">
-        Check Out
-    </a>
 </div>

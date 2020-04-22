@@ -12,3 +12,8 @@
     border-radius: 100px;
     background-size: cover;
 }
+
+.btn-secondary:hover {
+    background-color: #942626;
+    border-color: #942626;
+}

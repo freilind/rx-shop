@@ -1,0 +1,9 @@
+.row {
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-check-circle {
+    font-size: 7em;
+    color: green;
+}

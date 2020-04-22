@@ -6,7 +6,10 @@
     </div>
     <div *ngIf="showActions && shoppingCart" class="card-footer">
         <button *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity"
-        (click)="addToCart()" class="btn btn-secondary btn-block">Add to Cart</button>
+            (click)="addToCart()" class="btn btn-secondary btn-block">
+            Add to Cart
+            <i class="fa fa-cart-arrow-down fa-2x"></i>
+        </button>
     <ng-template #updateQuantity>
         <app-product-quantity [product]="product" [shoppingCart]="shoppingCart"></app-product-quantity>
     </ng-template>
