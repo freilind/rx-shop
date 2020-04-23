@@ -12,7 +12,7 @@ import { Category } from 'shared/models/category';
 })
 export class ProductFormComponent implements OnInit {
   categories: Category[] = [];
-  product = {};
+  product: any = { };
   id;
 
   constructor(
