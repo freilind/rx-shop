@@ -44,6 +44,21 @@ export class OrderService {
       );
   }
 
+  getOrderById(orderId: string) {
+    return this.db.object('/orders/' + orderId).snapshotChanges()
+    .pipe(
+      map((order: any ) => {
+        if (order.payload.exists()) {
+          const data = order.payload.val();
+          const key = order.payload.key;
+          return { key, ...data };
+        } else {
+          return null;
+        }
+      })
+    );
+  }
+
   getOrderByIdAndUser(orderId: string, userId: string) {
     return this.db.object('/orders/' + orderId).snapshotChanges()
     .pipe(

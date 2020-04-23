@@ -7,6 +7,7 @@ import { AdminOrdersComponent } from './components/admin-orders/admin-orders.com
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { AdminAuthGuardService as AdminAuthGuard } from './services/admin-auth-guard.service';
+import { AdminOrderComponent } from './components/admin-order/admin-order.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,11 @@ import { AdminAuthGuardService as AdminAuthGuard } from './services/admin-auth-g
         component: AdminProductsComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
-
+      {
+        path: 'admin/orders/:id',
+        component: AdminOrderComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
       {
         path: 'admin/orders',
         component: AdminOrdersComponent,
@@ -38,7 +43,8 @@ import { AdminAuthGuardService as AdminAuthGuard } from './services/admin-auth-g
   declarations: [
     ProductFormComponent,
     AdminProductsComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    AdminOrderComponent
   ],
   providers: [
     AdminAuthGuard

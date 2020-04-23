@@ -15,7 +15,7 @@
 
     <data-table-column [property] = "'key'" [header] = "'View'" [sortable] = true [resizable] = true>
         <ng-template #dataTableCell let-item="item">
-            <a [routerLink]="['/', item.key]">View</a>
+            <a [routerLink]="['/admin/orders/', item.key]">View</a>
         </ng-template>
     </data-table-column>
   </data-table>

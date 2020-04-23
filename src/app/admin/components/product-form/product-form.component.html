@@ -39,8 +39,10 @@
                     <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
                 </div>
             </div>
-            <button class="btn btn-primary">Save</button>
-            <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+            <div>
+                <button class="btn btn-primary">Save</button>
+                <button type="button" (click)="delete()" class="btn btn-danger float-right">Delete</button>
+            </div>
         </form>
     </div>
 
