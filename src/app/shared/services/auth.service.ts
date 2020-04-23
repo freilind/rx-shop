@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from './user.service';
-
-import { AppUser } from 'shared/models/user';
 import { switchMap } from 'rxjs/operators';
+import { AppUser } from 'shared/models/user';
+
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'

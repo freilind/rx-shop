@@ -16,6 +16,8 @@ import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
 import { CommonModule } from '@angular/common';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -25,16 +27,19 @@ import { CommonModule } from '@angular/common';
     DataTableModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ],
   declarations: [
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    NotFoundComponent
   ],
   exports: [
     CommonModule,
     ProductCardComponent,
     ProductQuantityComponent,
+    NotFoundComponent,
     FormsModule,
     CustomFormsModule,
     DataTableModule,

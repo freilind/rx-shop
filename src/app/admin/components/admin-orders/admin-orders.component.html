@@ -1,19 +1,22 @@
 <h1>Orders</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Customer</th>
-      <th>Date</th>
-      <th></th>
-    </tr>
-  </thead> 
-  <tbody>
-    <tr *ngFor="let order of orders$ | async">
-      <td>{{ order.shipping.name }}</td>
-      <td>{{ order.datePlaced | date}}</td>
-      <td>
-        <a href="#">View</a>
-      </td>
-    </tr>
-  </tbody> 
-</table>
+<div class="row col-10 mx-auto">
+  <data-table [items] = "orders" [itemCount] = "ordersCount" (reload) = "reloadOrders($event)">
+    <data-table-column [property] = "'shipping.name'" [header] = "'Customer'" [sortable] = true [resizable] = true>
+        <ng-template #dataTableCell let-item="item">
+            {{ item.shipping.name }}
+        </ng-template>
+    </data-table-column>
+
+    <data-table-column [property] = "'datePlaced'" [header] = "'Date'" [sortable] = true [resizable] = true>
+        <ng-template #dataTableCell let-item="item">
+            {{ item.datePlaced | date}}
+        </ng-template>
+    </data-table-column>
+
+    <data-table-column [property] = "'key'" [header] = "'View'" [sortable] = true [resizable] = true>
+        <ng-template #dataTableCell let-item="item">
+            <a [routerLink]="['/', item.key]">View</a>
+        </ng-template>
+    </data-table-column>
+  </data-table>
+</div>

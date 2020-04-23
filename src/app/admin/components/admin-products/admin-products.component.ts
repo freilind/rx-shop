@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ProductService } from 'shared/services/product.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DataTableResource } from 'angular7-data-table';
 import { Subscription } from 'rxjs';
 import { Product } from 'shared/models/product';
-import { DataTableResource } from 'angular7-data-table';
+import { ProductService } from 'shared/services/product.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -34,7 +34,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   }
 
   reloadItems(params) {
-    if (!this.tableResources) return;
+    if (!this.tableResources) { return; }
 
     this.tableResources.query(params)
       .then(items => this.items = items);

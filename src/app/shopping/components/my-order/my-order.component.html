@@ -1,0 +1,53 @@
+<h2 *ngIf="show">My Order </h2>
+<div class="row" *ngIf="show">
+    <div class="col-5">
+        <div>
+            <div class="form-group">
+                <p>
+                    <strong>Name: </strong> {{ order.shipping.name }}
+                </p> 
+            </div>
+            <div class="form-group">
+                <p>
+                    <strong>Address: </strong> {{ order.shipping.addressLine1 }}, {{ order.shipping.addressLine2 }}.
+                </p> 
+            </div>
+            <div class="form-group">
+                <p>
+                    <strong>City: </strong> {{ order.shipping.city }}
+                </p> 
+            </div>
+            <div class="form-group">
+                <p>
+                    <strong>Date: </strong> {{ order.datePlaced | date }}
+                </p> 
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let item of order.items"  class="list-group-item">
+                <div class="container">
+                    <div [style.backgroundImage]="'url(' + item.product.imageUrl +')'" class="thumbnail " alt=""></div>
+                    <div> {{ item.quantity }} x {{ item.product.title }} </div>
+                    <div> {{ item.totalPrice | currency:'USD':true }} </div>
+                </div>
+            </li>
+            <li class="list-group-item font-weight-bold">
+                <div class="container">
+                    <div>Total:</div>
+                    <div> {{ quantity }} items. </div>
+                    <div> {{ orderTotal | currency:'USD':true }} </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="notFound">
+    <app-not-found></app-not-found>
+</div>
+
+
+
+

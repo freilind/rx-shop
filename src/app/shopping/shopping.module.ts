@@ -11,6 +11,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { MyOrderComponent } from './components/my-order/my-order.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,11 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
         canActivate: [AuthGuard]
       },
       {
+        path: 'my/orders/:id',
+        component: MyOrderComponent,
+        canActivate: [AuthGuard]
+      },
+      {
         path: 'my/orders',
         component: MyOrdersComponent,
         canActivate: [AuthGuard]
@@ -44,7 +50,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     OrderSuccessComponent,
     MyOrdersComponent,
     ShoppingCartSummaryComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    MyOrderComponent
   ]
 })
 export class ShoppingModule { }
