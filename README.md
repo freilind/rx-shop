@@ -1,5 +1,9 @@
 # RxShop
 
+This project is the practice of the course https://www.udemy.com/course/the-complete-angular-master-class/. Thanks to Mosh Hamedani https://github.com/mosh-hamedani.
+
+The code is updated to April 2020.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Development server
