@@ -1,5 +1,5 @@
 <h1>Orders</h1>
-<div class="row col-10 mx-auto">
+<div class="row col-sm-12 col-md-10 col-lg-10 mx-auto">
     <data-table [items] = "orders" [itemCount] = "ordersCount" (reload) = "reloadOrders($event)">
         <data-table-column [property] = "'shipping.name'" [header] = "'Customer'" [sortable] = true [resizable] = true>
             <ng-template #dataTableCell let-item="item">

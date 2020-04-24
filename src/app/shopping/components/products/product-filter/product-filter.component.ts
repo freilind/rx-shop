@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'shared/models/category';
 import { CategoryService } from 'shared/services/category.service';
 
@@ -8,8 +8,8 @@ import { CategoryService } from 'shared/services/category.service';
   styleUrls: ['./product-filter.component.css']
 })
 export class ProductFilterComponent implements OnInit {
-  categories: Category[] = [];
   @Input('category') category;
+  categories: Category[] = [];
 
   constructor(categoryService: CategoryService) {
     categoryService.getAll().subscribe(categories => this.categories = categories);

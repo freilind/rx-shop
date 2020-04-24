@@ -3,21 +3,17 @@
     <a class="navbar-brand" routerLink="/">
       <img src="./../../../../assets/images/logo.png" class="logo" alt="logo">
     </a>
+    <a class="mg-lft-100" routerLink="/shopping-cart" *ngIf="cart$ | async as cart">
+      <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" *ngIf="cart.totalItemsCount != 0"></i>
+      <span class="badge badge-cart badge-pill" *ngIf="cart.totalItemsCount != 0">
+        {{ cart.totalItemsCount }}
+      </span>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mg-lft-100">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-cart" *ngIf="cart$ | async as cart">
-            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-            <span class="badge badge-cart badge-pill" *ngIf="cart.totalItemsCount != 0">
-              {{ cart.totalItemsCount }}
-            </span>
-          </a>
-        </li>
-      </ul>
       <ul class="navbar-nav ml-auto">
         <ng-template #anonymousUser>
           <li class="nav-item">
